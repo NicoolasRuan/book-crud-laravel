@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+@extends('site.layouts.app')
+
+@section('header')
+    @include('site.partials.header')
+@endsection
+
+
+
+@section('content')
+    <h1 class="text-white">All books</h1>
+@endsection
+
+
+
+
+
+
+
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,6 +26,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     <title>Document</title>
+
+    @vite('resources/css/app.css')  
 
     <style>
         /* .teste:hover {
@@ -20,7 +41,7 @@
 
         td a {
             display: block;
-            
+
             padding: 10px;
             text-decoration: none;
             color: black;
@@ -46,9 +67,13 @@
 
 <body>
 
-    <h1>All books</h1>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
 
-    <a href="{{route('books.create')}}">Create</a>
+    <h1 class="">All books</h1>
+
+    <a href="{{ route('books.create') }}">Create</a>
 
     <table class="table table-sm">
         <thead>
@@ -67,8 +92,10 @@
                     <td><a href="{{ route('books.show', $book->id) }}">{{ $book->title }}</a></td>
                     <td><a href="{{ route('books.show', $book->id) }}">{{ $book->description }}</a></td>
                     <td><a href="{{ route('books.show', $book->id) }}">{{ $book->author }}</a></td>
-                    <td><a href="{{ route('books.show', $book->id) }}">{{ '$ '.$book->price ?? 'Not specified' }}</a></td>
-                    <td><a href="{{ route('books.show', $book->id) }}">{{ $book->number_pages ?? 'Not specified' }}</a>
+                    <td><a href="{{ route('books.show', $book->id) }}">{{ '$ ' . $book->price ?? 'Not specified' }}</a>
+                    </td>
+                    <td><a
+                            href="{{ route('books.show', $book->id) }}">{{ $book->number_pages ?? 'Not specified' }}</a>
                     </td>
                     <td><a href="{{ route('books.show', $book->id) }}">{{ $book->link ?? 'Not specified' }}</a></td>
 
@@ -80,4 +107,4 @@
 
 </body>
 
-</html>
+</html> --}}

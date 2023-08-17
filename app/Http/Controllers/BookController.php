@@ -20,7 +20,7 @@ class BookController extends Controller
     public function index()
     {
         $books = $this->book->all();
-        return view('admin.index', compact('books'));
+        return view('site.index', compact('books'));
     }
 
     /**
@@ -30,7 +30,7 @@ class BookController extends Controller
     {
         // pegar o form para criar um book
 
-        return view('admin.create');
+        return view('site.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class BookController extends Controller
     {
         $book = $this->book->find($id);
 
-        return view('admin.show', compact('book'));
+        return view('site.show', compact('book'));
     }
 
     /**
@@ -63,7 +63,7 @@ class BookController extends Controller
     {
         $book = $this->book->find($id);
 
-        return view('admin.edit', compact('book'));
+        return view('site.edit', compact('book'));
     }
 
     /**
@@ -84,5 +84,10 @@ class BookController extends Controller
         $this->book->where('id',$id)->delete();
 
         return redirect()->route('books.index');
+    }
+
+    public function about() 
+    {
+        return view('site.about');
     }
 }

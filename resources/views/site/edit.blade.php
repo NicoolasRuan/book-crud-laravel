@@ -1,3 +1,9 @@
+@extends('site.layouts.app')
+
+@section('header')
+    @include('site.partials.header')
+@endsection
+
 <h1>edit form</h1>
 
 <form action="{{route('books.update', $book->id)}}" method="POST">
