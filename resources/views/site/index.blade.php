@@ -7,7 +7,45 @@
 
 
 @section('content')
-    <h1 class="text-white">All books</h1>
+    <div class="text-white p-4 text-center flex flex-col gap-4 w-4/5">
+        <h1 class="text-white text-3xl font-bold text-center">All books</h1>
+
+        {{-- {{dd($books->items())}} --}}
+
+        <table class="p-6 border-2 border-solid border-slate-700 border-collapse w-full bg-slate-800">
+            <thead>
+                <tr class="text-2xl border-2 border-slate-700 leading-10">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>N° Pages</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach ($books as $book)
+                <tr class="border-2 border-slate-700 py-28 leading-9 cursor-pointer hover:bg-slate-900">
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->title }}</a></td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->description }}</a></td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->author }}</a></td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ '$ ' . $book->price ?? 'Not specified' }}</a>
+                    </td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->number_pages ?? 'Not specified' }}</a>
+                    </td>
+                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->link ?? 'Not specified' }}</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+@endsection
+
+
+
+@section('footer')
+    @include('site.partials.footer')
 @endsection
 
 

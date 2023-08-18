@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,21 @@
 
     @vite('resources/css/app.css')
 </head>
+
 <body class="bg-slate-700">
 
-    <div class="container max-w-full">
-        @yield('header')
-    
-        <div class="container">
-            @yield('content')
-        </div>
 
+    @yield('header')
+
+    <div class="flex  justify-center w-full h-3/4">
+        @yield('content')
     </div>
 
-    
+
+    @yield('footer')
+
+
+
 </body>
+
 </html>
