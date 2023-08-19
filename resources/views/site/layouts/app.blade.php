@@ -15,7 +15,7 @@
 
     @yield('header')
 
-    <div class="flex  justify-center w-full h-3/4">
+    <div class="flex justify-center w-full h-3/4">
         @yield('content')
     </div>
 

@@ -8,3 +8,8 @@
 @section('content')
     <h1 class="text-white">about</h1>
 @endsection
+
+
+@section('footer')
+    @include('site.partials.footer')
+@endsection 
