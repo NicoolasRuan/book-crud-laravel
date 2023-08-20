@@ -9,7 +9,8 @@
 
     <div class="w-2/4 h-full bg-slate-600 flex">
         <div class="w-1/2 h-full flex flex-col items-start  pt-28 text-white">
-            <div class="pl-16 w-full">
+
+            <div class="ml-8 w-full bg-slate-500 flex flex-col pl-5 pt-3 rounded-xl">
                 <div class="flex gap-5 items-center">
                     <h1 class="text-xl font-bold flex">{{ $book->title }}</h1>
                 </div>
@@ -37,6 +38,17 @@
                     @endif
                 </div>
 
+            </div>
+            <div class="ml-8 w-full flex justify-around pl-5 py-1 rounded-xl mt-3">
+                <button class="bg-amber-600 w-24 h-8 rounded-lg text-lg font-bold hover:bg-amber-700">
+                    <a href="{{ route('books.edit', $book->id) }}">Edit</a> 
+                </button>
+                <form action="{{ route('books.destroy', $book->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+
+                    <button class="bg-amber-600 w-24 h-8 rounded-lg text-lg font-bold hover:bg-amber-700" type="submit">Delete</button>
+                </form>
             </div>
         </div>
 

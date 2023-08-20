@@ -26,16 +26,26 @@
             <tbody>
 
                 @foreach ($books as $book)
-                <tr class="border-2 border-slate-700 py-28 leading-9 cursor-pointer hover:bg-slate-900">
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->title }}</a></td>
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->description }}</a></td>
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->author }}</a></td>
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ '$ ' . $book->price ?? 'Not specified' }}</a>
-                    </td>
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->number_pages ?? 'Not specified' }}</a>
-                    </td>
-                    <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->link ?? 'Not specified' }}</a></td>
-                </tr>
+                    <tr class="border-2 border-slate-700 py-28 leading-9 cursor-pointer hover:bg-slate-900">
+                        <td><a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">{{ $book->title }}</a>
+                        </td>
+                        <td><a href="{{ route('books.show', $book->id) }}"
+                                class="w-full h-full block">{{ strlen($book->description) > 30 ? substr($book->description, 0, 30) . '(...)' : $book->description }}</a>
+                        </td>
+                        <td><a href="{{ route('books.show', $book->id) }}"
+                                class="w-full h-full block">{{ $book->author }}</a></td>
+                        <td><a href="{{ route('books.show', $book->id) }}"
+                                class="w-full h-full block">{{ '$ ' . $book->price ?? 'Not specified' }}</a>
+                        </td>
+                        <td><a href="{{ route('books.show', $book->id) }}"
+                                class="w-full h-full block">{{ $book->number_pages ?? 'Not specified' }}</a>
+                        </td>
+                        <td>
+                            <a href="{{ route('books.show', $book->id) }}" class="w-full h-full block">
+                                {{isset($book->link) && strlen($book->link) > 21 ? substr($book->link, 0, 21) . "(...)" : (isset($book->link) && strlen($book->link) <= 21 ? $book->link : "Not specified") }}
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
