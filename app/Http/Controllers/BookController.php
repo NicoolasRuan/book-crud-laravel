@@ -19,7 +19,7 @@ class BookController extends Controller
 
     public function index()
     {
-        $books = $this->book->paginate(15);
+        $books = $this->book->paginate(9);
         return view('site.index', compact('books'));
     }
 
